@@ -1,0 +1,397 @@
+% Skew Hadamard matrices of orders 4040, 5192, 5960 and 6216
+% Compile with pdflatex (see the repository Makefile).
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\F}{\mathbb F}
+\newcommand{\one}{\mathbf1}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\setlength{\emergencystretch}{3em}
+\hypersetup{
+  pdftitle={Skew Hadamard matrices of orders 4040, 5192, 5960 and 6216},
+  pdfauthor={Jeffery Kline}
+}
+\title{Skew Hadamard matrices of orders 4040, 5192, 5960 and 6216}
+\author{Jeffery Kline}
+\date{Release candidate, November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We give skew Hadamard matrices of orders 4040, 5192, 5960 and 6216. For each of their odd parts, the 2025 table of Cati and Pasechnik records a larger least known order; at odd part 505 the recorded power of two drops from $2^{11}$ to $2^3$. Each matrix comes from four unions of sixteenth-power classes in a prime field, placed in the bordered array of Momihara and Xiang. For four fixed patterns of such unions we give an exact test: a prime $p\equiv17\bmod32$ works if and only if one ratio of binomial coefficients satisfies one of four polynomial congruences modulo $p$. For three of the four patterns, the primes that work are exactly the primes $p\equiv17\bmod32$ represented by explicit binary quartic forms, such as $u^4+8u^2v^2+8v^4$. There are $O(\sqrt x)$ such primes up to $x$, and infinitely many would follow from the standard conjecture on prime values of polynomials. When all four unions are skew, as at $p=1553$, the construction gives skew Hadamard matrices of order $4(p^n+1)$ for every $n\ge1$. This paper is a sequel to a release that gave order 2120.
+\end{abstract}
+
+\section{The orders}
+A skew Hadamard matrix of order $N$ is a sign matrix $H$ with $HH^T=NI$ and $H+H^T=2I$. For odd $m$, Cati and Pasechnik record the smallest exponent $t$ for which a skew matrix of order $2^t m$ was known~\cite[Table~5]{CP}. This paper gives explicit matrices below four of their entries (Table~\ref{orders}); a previous release~\cite{Kline} gave a fifth, at order 2120.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrl}
+\toprule
+Skew order & Odd part $m$ & Recorded $t$ & Bound here & Base field\\
+\midrule
+2120 & 265 & 4 & $t\le3$ & $\F_{23^2}$, previously archived~\cite{Kline}\\
+4040 & 505 & 11 & $t\le3$ & $\F_{1009}$\\
+5192 & 649 & 4 & $t\le3$ & $\F_{1297}$\\
+5960 & 745 & 6 & $t\le3$ & $\F_{1489}$\\
+6216 & 777 & 4 & $t\le3$ & $\F_{1553}$\\
+\bottomrule
+\end{tabular}
+\caption{Upper bounds for skew orders. Ordinary Hadamard matrices at all five orders already follow from Paley II and doubling.}\label{orders}
+\end{table}
+
+The largest improvement is at odd part 505, where the recorded exponent drops from eleven to at most three. At orders 4040, 5192 and 5960, only the first of four blocks is skew. At 6216 all four blocks are skew, which permits us to extend the construction to every positive field degree. The order comparison is to the authors' 2025 table. The later census of \DJ{}okovi\'c and Seberry~\cite{DS} treats the possible half-orders $4m$, and the November 2026 update~\cite{GSI} records neither these five orders nor their halves in its skew index. General constructions conditional on further difference families or orthogonal designs leave historical priority open. The earlier archive~\cite{Kline} contains the full order-2120 matrix, the square-field seed, the odd-degree construction and the all-skew minimum used below.
+
+\section{Four finite certificates}
+Let $G$ be an abelian group of odd order $v$. Put $m=(v-1)/2$. Four sets $B_i$ of size $m$ meet the difference condition if, for every $t\ne0$,
+\begin{equation}\label{diff}
+\sum_{i=1}^4 \#\{(x,y)\in B_i^2:x-y=t\}=v-3.
+\end{equation}
+A set $B$ is skew if $B$ and $-B$ partition $G\setminus\{0\}$. We recall the border criterion of Momihara and Xiang~\cite[Prop.~1.3]{MX}.
+\begin{lemma}\label{border}
+If \eqref{diff} holds and $B_1$ is skew, there is a skew Hadamard matrix of order $4(v+1)$.
+\end{lemma}
+\begin{proof}
+Set $f_i=1-2\one_{B_i}$ and $A_i(x,y)=f_i(y-x)$. Each row sum is one. Expanding the four periodic correlations gives $4v-16m+4(v-3)=-4$ at any nonzero shift and $4v$ at zero. Hence $\sum A_iA_i^T=4(v+1)I-4J$, with $J$ the all-ones matrix. Also $A_1+A_1^T=2I$. Let $R$ reflect $x$ to $-x$, $D_i=A_iR$ and $T_i=RA_i$. Set
+\[
+ C=\begin{pmatrix}+&+&+&+\\-&+&-&+\\-&+&+&-\\-&-&+&+\end{pmatrix},
+ \quad U=\begin{pmatrix}-&-&-&-\\-&-&+&+\\-&+&+&-\\-&+&-&+\end{pmatrix},\quad
+ W=\begin{pmatrix}A_1&D_2&D_3&D_4\\-D_2&A_1&-T_4&T_3\\
+ -D_3&T_4&A_1&-T_2\\-D_4&-T_3&T_2&A_1\end{pmatrix}.
+\]
+Let $L=U\otimes\one^T$, repeating each sign $v$ times. The required matrix has block rows $(C,L)$ and $(-L^T,W)$. The $A_i$ and their transposes commute, $RA_iR=A_i^T$, and the $D_i,T_i$ are symmetric. These give pairwise cancellation in each off-diagonal block of $WW^T$; for example, $-A_1D_2+D_2A_1^T-D_3T_4+D_4T_3=0$. Each diagonal Gram block is $\sum A_iA_i^T$, and $L^TL$ adds $4J$ to it. The block row sums of $W$ form $C$. The other Gram blocks follow from $CC^T=UU^T=4I$ and $CU=UC^T$. The displayed signs give skewness.
+\end{proof}
+
+For the four prime fields let $b$ be the primitive root in Table~\ref{masks}. An integer $M$ specifies a set: include $b^j$ when bit $j\bmod16$ of $M$ is zero, numbering from the least significant bit. Exclude the field element zero. Each row uses eight of the sixteen multiplicative classes.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrlrr}
+\toprule $p$ & $b$ & Masks in block order & Skew blocks & $p-3$\\
+\midrule
+1009&11&255, 13973, 48322, 47288&1&1006\\
+1297&10&765, 31425, 21866, 38610&1&1294\\
+1489&14&765, 13916, 7507, 25542&1&1486\\
+1553&3&11475, 13005, 19125, 21675&4&1550\\
+\bottomrule
+\end{tabular}
+\caption{Prime-field certificates. All four sets in a row have size $(p-1)/2$.}\label{masks}
+\end{table}
+\begin{theorem}
+There exist skew Hadamard matrices at the four prime-field orders of Table~\ref{orders}.
+\end{theorem}
+\begin{proof}
+Negation shifts the class index by eight since $(p-1)/16$ is odd. The opposite bits of the first mask always differ. For reproducibility, the following integer calculation obtains the last column of Table~\ref{masks} at every nonzero shift. Here $\mathrm{bit}(M,j)=\lfloor M/2^j\rfloor\bmod2$.
+\begin{quote}\small
+Fill $c[b^j\bmod p]=j\bmod16$ for $0\le j<p-1$, checking that no residue repeats. Initialize $d[0],\ldots,d[p-1]$ to zero. For each of the four masks form $B=\{1\le x<p:\mathrm{bit}(M,c[x])=0\}$. For each $x,y\in B$ increment $d[(x-y)\bmod p]$ by one. The minimum and maximum of $d[1],\ldots,d[p-1]$ both equal the tabulated value, and $d[0]=2(p-1)$.
+\end{quote}
+Lemma~\ref{border} applies. A separate check on the completed sign matrices verified skewness and Hamming distance $N/2$ for all $58\,708\,656$ unordered pairs of distinct rows across the four orders.
+\end{proof}
+
+For the order-2120 row, write $\F_{529}=\F_{23}[i]$, $i^2=-1$, and $z=1+2i$. Use the signs $(+,+,-,+,+,+,+,+)$ at exponents $0,\ldots,7$, negate them eight exponents later, and extend with period sixteen. Take the four shifts by $0,2,4,6$, with zero in no negative support. Summing first along the $\F_{23}$-lines gives eight signed sums
+\[
+ 9,\ 7,\ 3,\ 3,\ 1,\ -3,\ -1,\ 5.
+\]
+The squares in the even and odd positions each sum to $92=4\cdot23$. The scalar quadratic Gauss sum contributes a factor $23$ in squared magnitude, giving total energy $4\cdot529$ at each nonprincipal character. The full line-sum calculation is in~\cite{Kline}.
+
+\section{A binomial test over prime fields}
+Write $p=16h+1$ with $h$ odd and set
+\[
+ Y=\binom{8h}{3h}\big/\binom{8h}{h}
+   =\frac{h!(7h)!}{(3h)!(5h)!}\quad\text{in }\F_p.
+\]
+We now use \emph{eight-bit} masks. A set bit at position $j$ means a negative sign at $b^j$, $0\le j<8$. Specify the opposite sign at $j+8$, extend with period sixteen, and give the origin value zero. These signed rows are odd. A rotation by $e$ replaces $s(x)$ by $s(b^e x)$.
+\begin{theorem}\label{ratio}
+For each row of the following table there exists a choice of primitive base for which the four negative supports satisfy \eqref{diff} if and only if the indicated polynomial vanishes at $Y$ modulo $p$.
+\[
+\begin{array}{cll}
+\toprule j& P_j(Y)&\text{four signed rows}\\
+\midrule
+1&Y^2-2Y-1&\text{masks }48,12,252,192\\
+2&Y^2+2Y-1&\text{rotations }0,2,4,6\text{ of mask }0\\
+3&Y^2-14Y-1&\text{rotations }0,2,4,6\text{ of mask }2\\
+4&17Y^4-44Y^3+66Y^2-52Y+17&\text{rotations }0,2,4,6\text{ of mask }4\\
+\bottomrule
+\end{array}
+\]
+\end{theorem}
+The equivalence quantifies over the indicated templates. Four freely chosen masks satisfy the more general system \eqref{seven} below. For example, $p=1553$ gives $Y=190$ and $190^2-2(190)-1=23\cdot1553$. At $p=241$ even the unrestricted all-skew index-sixteen test has no solution.
+
+\begin{proof}
+Let $z=b^h$. For positive odd $u<16$ define $L_{i,u}(X)=\sum_{j=0}^7 s_i(b^j)X^{uj}$. Fourier inversion on the sixteen exponent classes gives, including at zero,
+\[
+ s_i(x)=\frac18\sum_{u=1,3,\ldots,15} L_{i,u}(z)x^{(16-u)h}\quad\text{in }\F_p.
+\]
+In $S(t)=\sum_{i,x}s_i(x)s_i(x+t)$ only positive multiples of $p-1$ survive summation over $x$, with factor $-1$. The degree in $x$ is less than $2(p-1)$. The nonconstant coefficient at $t^{(16-d)h}$ is $1/64$ times
+\begin{equation}\label{seven}
+ \sum_{\substack{u+v=d\\ u,v>0\ {\rm odd}}}\binom{dh}{uh}
+               \sum_{i=1}^4 L_{i,u}(z)L_{i,v}(z),\qquad d=2,4,\ldots,14.
+\end{equation}
+Indeed $-\binom{(16-v)h}{uh}=\binom{dh}{uh}\bmod p$ since $uh$ is odd. The constant is $S(0)=4(p-1)$. The degree in $t$ is at most $14h<p-1$, so the seven coefficients vanish exactly when $S(t)=-4\bmod p$ at every nonzero shift.
+
+To recover the integer difference count $D(t)$, reset each origin to $+1$. At $t\ne0$ the cross terms cancel by oddness, giving $S(t)=4p-16m+4D(t)$ over the integers, with $m=(p-1)/2$. Translation by a nonzero $t$ is a single cycle. Each negative support intersects its translate in at most $m-1$ elements. Thus $0\le D(t)\le2p-6$, in which interval the only integer congruent to $p-3$ is $p-3$.
+
+For the rotation rows, summing the multipliers $z^{-2j(u+v)}$ for $0\le j<4$ kills all terms except $d=8$. The surviving equation is $L_1L_7+Y L_3L_5=0$ at $z$, omitting the row index. Form the resultant of $X^8+1$ with $L_1(X)L_7(X)+Y L_3(X)L_5(X)$. For masks $0,2,4$ the results are $2^{14}P_2^4,2^{14}P_3^4,2^{14}P_4^2$. These finite polynomial computations can be made by reducing the products modulo $X^8+1$ and taking the determinant of multiplication on $1,X,\ldots,X^7$. The polynomial $X^8+1$ splits with simple roots in $\F_p$. Every such root is $b^h$ for a primitive $b$, since $\gcd(h,16)=1$.
+
+For the fixed quartet, reduce $\sum_i L_{i,u}L_{i,v}$ modulo $X^8+1$. Among $u\le v$ in \eqref{seven} only $(1,7)$ and $(3,5)$ survive. Their values are $16(X+X^7)$ and $16(X^3+X^5)$. For $c=z^2-z^6$, one has $c^2=2$ and $z+z^7=(c-1)(z^3+z^5)$, with $z^3+z^5\ne0$. Replacing $z$ by $z^3$ negates $c$. The equation is therefore equivalent to $(Y-1)^2=2$.
+\end{proof}
+
+Lehmer's general difference-count test applies to prescribed unions of cyclotomic classes~\cite{Leh76}. At index sixteen her uniform construction supplies eight skew blocks for $p\equiv17\bmod32$~\cite{Leh74,MX}. Order-sixteen cyclotomic numbers have been tabulated by Evans and Hill~\cite{EH}. Hudson and Williams express order-sixteen binomial coefficients through Jacobi sums, including at $p=113$~\cite{HW}. Theorem~\ref{ratio} identifies the four specific polynomial tests for four blocks. We use the classical binomial--Jacobi connection to interpret three of those tests arithmetically.
+
+\section{Three prime criteria as binary quartic forms}\label{sec:quartic-prime-forms}
+
+\begin{theorem}\label{thm:quartic-prime-forms}
+Let $p=16h+1$ be prime with $h$ odd, and set
+$Y=\binom{8h}{3h}/\binom{8h}{h}$ in $\mathbb F_p$.
+Each congruence in the left column holds if and only if $p$ has one
+of the representations on its right, with $u,v$ positive integers.
+\[
+\begin{array}{c|l}
+Y^2-2Y-1=0 & p=u^4+8u^2v^2+8v^4\\
+Y^2+2Y-1=0 & p=u^4+16u^2v^2+32v^4\\
+Y^2-14Y-1=0 & p=49u^4+80u^2v^2+32v^4\\
+             & \text{or }p=u^4+80u^2v^2+1568v^4 .
+\end{array}
+\]
+\end{theorem}
+
+\begin{proof}
+Let $\zeta=\exp(2\pi i/16)$ and let $K$ be the subfield of
+$\mathbb Q(\zeta)$ fixed by $\zeta\mapsto\zeta^7$. The automorphism
+$\sigma$ induced by $\zeta\mapsto\zeta^3$ generates its cyclic Galois
+group of order four, and $\sigma^2$ is complex conjugation.
+Put $r=\zeta^2-\zeta^6=\sqrt2$ and $\beta=\zeta+\zeta^7$.
+Then
+\[
+ \sigma r=-r,\qquad \beta^2=-(2-r),\qquad
+ \sigma\beta=(1+r)\beta .
+\]
+Pairing coefficients in the integral basis $1,\zeta,\dots,\zeta^7$
+shows that $1,r,\beta,\sigma\beta$ is an integral basis of $K$.
+
+Fix a prime above $p$ in $\mathbb Q(\zeta)$ and denote reduction there by
+$\rho$. Choose the multiplicative character $\chi$ of order sixteen
+whose reduction is $x\mapsto x^h$. Let $\eta$ be the quadratic
+character, and extend all characters by zero at zero. Put
+\[
+ J=\sum_{x\in\mathbb F_p}\chi^{-1}(x)\eta(1-x).
+\]
+Inverting $x$ interchanges the first characters $A$ and $\eta A^{-1}$
+in $J(A,\eta)$, since $\eta(-1)=1$. For $A=\chi^{-1}$ this is the
+action of $\zeta\mapsto\zeta^7$, so $J\in K$.
+For $k=1,3$, expansion of $x^{(16-k)h}(1-x)^{8h}$ and summation over
+$x$ give $\rho(J(\chi^{-k},\eta))=\binom{8h}{kh}$.
+Only the term of degree $16h$ contributes, with two minus signs
+since $kh$ is odd. Thus $\rho(J),\rho(\sigma J)$ are nonzero
+and $Y=\rho(\sigma J/J)$.
+
+The Jacobi sum identity $J\overline J=p$ follows from
+$J(A,B)=G(A)G(B)/G(AB)$ and $|G(H)|=\sqrt p$ for nontrivial $H$,
+applied where $A,B,AB$ are all nontrivial. In particular
+$\rho(\overline J)=\rho(\overline{\sigma J})=0$.
+Also $J\equiv-1\pmod {2}$, since $\eta(1-x)\equiv1\pmod2$
+for $x\ne1$ and $\sum_x\chi^{-1}(x)=0$.
+Write, using the integral basis,
+\[
+ J=C+Dr+\beta L,\qquad C,D\in\mathbb Z,\quad L\in\mathbb Z[r].
+\]
+Here $C$ is odd and $D$ even. Put $X=|C|$, $Z=|D|$.
+The real parts of $J$ and $\sigma J$ satisfy
+\begin{equation}\label{eq:quartic-bound}
+ X+rZ=\max(|C+Dr|,|C-Dr|)\le\sqrt p .
+\end{equation}
+In the rest of the proof we use the same letters for elements and
+their reductions in identities in $\mathbb F_p$. The vanishing of
+both conjugate sums gives
+\begin{equation}\label{eq:quartic-ratio}
+ Y=\frac{C-Dr}{C+Dr}=(1+r)\frac{\sigma L}{L}.
+\end{equation}
+Indeed $C+Dr$ and $\beta L$ each reduce to $J/2$. If $XZ=0$, the
+first ratio is $1$ or $-1$, which satisfies none of the three
+congruences since $p\ge17$. Hence assume $XZ>0$.
+
+\smallskip\noindent
+\emph{The first two congruences.}
+Their roots are $1\pm r$ and $-1\pm r$, respectively.
+Inserting $1+\epsilon r$ into the first ratio
+in~\eqref{eq:quartic-ratio} gives $C=-(2\epsilon+r)D$.
+Inserting $-1+\epsilon r$ gives $2(C-\epsilon D)^2=C^2$.
+Thus $p$ divides one of $X^2\pm4XZ+2Z^2$.
+Both are nonzero since the quadratic slopes are irrational.
+The smaller value has absolute value less than $p$ by
+\eqref{eq:quartic-bound} and $4XZ<(X+rZ)^2$.
+The larger lies strictly between zero and $2p$, since
+$X^2+4XZ+2Z^2<2(X+rZ)^2$. It follows that
+\begin{equation}\label{eq:quartic-first-norm}
+ p=X^2+4XZ+2Z^2,\qquad \gcd(X,Z)=1.
+\end{equation}
+
+Let $s=\operatorname{sgn}(CD)$. Subtracting $(C+Dr)^2$ from
+\eqref{eq:quartic-first-norm} gives $(2-r)L^2=2XZ(2-sr)$.
+Write $L=L_0$ for $s=1$ and $L=(1+r)L_0$ for $s=-1$.
+Then $L_0^2=2XZ$ and~\eqref{eq:quartic-ratio} gives
+\[
+ Y=(1+sr)\frac{\sigma L_0}{L_0}.
+\]
+A square root of a nonzero rational in $\mathbb Q(r)$ lies in
+$\mathbb Q$ or $r\mathbb Q$, by comparison of the coefficient of
+$r$ in $(a+br)^2$. The two cases give $\sigma L_0/L_0=1$ and $-1$,
+respectively. The two root sets are disjoint at odd $p$.
+Thus the first congruence selects $2XZ$ square and the second
+selects $XZ$ square. Coprimality, $X$ odd, and $Z$ even give
+$(X,Z)=(u^2,2v^2)$ and $(u^2,4v^2)$, respectively.
+Substitution in~\eqref{eq:quartic-first-norm} gives the first two forms.
+
+\smallskip\noindent
+\emph{The third congruence.}
+The roots are $7\pm5r$. Substituting either root in
+\eqref{eq:quartic-ratio} gives $(7C\pm10D)^2=2D^2$ in
+$\mathbb F_p$. Dividing the expanded equation by $7$ shows that
+$p$ divides one of $7X^2\pm20XZ+14Z^2$. These values lie
+strictly between $-p$ and $8p$, since they differ from
+$7(X\pm rZ)^2$ by at most $(20-14r)XZ<p$.
+Each is $7\bmod8$ and $p\equiv1\bmod8$, so the divisible value is
+$7p$. The minus sign gives a value strictly below $7p$. Hence
+\begin{equation}\label{eq:quartic-third-norm}
+ p=X^2+(20/7)XZ+2Z^2 .
+\end{equation}
+In particular $7\mid XZ$. The square of $\gcd(X,Z)$ divides $7p$,
+which is squarefree. Thus $\gcd(X,Z)=1$.
+
+Now write $L=(r-1)L_0$ for $s=1$ and $L=(1+r)^2L_0$ for $s=-1$.
+Equation~\eqref{eq:quartic-third-norm} and
+$(2-r)L^2=p-(C+Dr)^2$ give $L_0^2=2XZ/7$.
+The second ratio in~\eqref{eq:quartic-ratio} becomes
+\[
+ Y=-(7+s5r)\frac{\sigma L_0}{L_0}.
+\]
+The root sets $\{7\pm5r\}$ and $\{-7\pm5r\}$ are disjoint:
+their quadratics differ by $28Y$ and have nonzero constant term.
+Thus $\sigma L_0/L_0=-1$, and $XZ/7$ is a square.
+Coprimality and parity give $(X,Z)=(7u^2,4v^2)$ or
+$(X,Z)=(u^2,28v^2)$. Substitution gives the two stated forms.
+
+\smallskip\noindent
+\emph{Converses.}
+Given a representation in the table, take its indicated positive
+$X,Z$ and put $J_0=X+Zr+\beta L$. For the first two forms choose
+$L=\sqrt{2XZ}$, which is $2uv$ and $2uvr$, respectively.
+For either third-rule form take $L=(r-1)\sqrt{2XZ/7}$, where
+$\sqrt{2XZ/7}=2uvr$. These choices are integral and
+$J_0\overline{J_0}=p$ by the corresponding norm equation.
+
+The prime $p$ splits completely in $K$. The ideal of any integral
+$W$ satisfying $W\overline W=p$ contains exactly one prime factor
+from each conjugate pair above $p$, each to exponent one.
+With the primes ordered cyclically by $\sigma$, complex conjugation
+shifts by two. The four possible pairs of prime factors are the four
+adjacent pairs, which form one Galois orbit. Thus $J$ is a conjugate
+of $J_0$ times a unit. All conjugates of this unit have absolute
+value one, so it is a root of unity by Kronecker's theorem.
+The roots of unity in $\mathbb Q(\zeta)$ are the sixteenth roots,
+and only $\pm1$ among these are fixed by $\zeta\mapsto\zeta^7$.
+It follows that $J$ has the same absolute real coefficients $X,Z$
+as $J_0$. For either sign of $CD$, the second ratio
+in~\eqref{eq:quartic-ratio} now gives precisely the asserted root
+set by the preceding calculation.
+\end{proof}
+
+The first form gives $1553=5^4+8\cdot5^2\cdot2^2+8\cdot2^4$.
+The second gives $3217=7^4+16\cdot7^2+32$.
+The first form for the third rule gives $881=49+80\cdot2^2+32\cdot2^4$.
+
+
+\subsection*{Counting the represented primes}
+The first three rules imply an unconditional bound of $O(\sqrt{x})$ on the number of eligible primes up to $x$ that they select. Each positive parameter in Theorem~\ref{thm:quartic-prime-forms} is $O(x^{1/4})$. This proves relative density zero among the primes for those three rules. The fourth criterion still has its binomial formulation.
+
+Here is a quantitative prediction for the three rules. For a form $F$ in Theorem~\ref{thm:quartic-prime-forms} write $A_F$ for the area of $\{(u,v)>0:F(u,v)\le1\}$ and let $\rho_F(\ell)$ count its zeros in $\F_\ell^2$. A local-density prime-values heuristic predicts
+\begin{equation}\label{prediction}
+ \#\{p\le x:p\equiv17\bmod32,\ p=F(u,v),\ u,v>0\}
+ \ \sim\ \frac{A_F}{2}\prod_{\ell\ {\rm odd\ prime}}
+ \frac{1-\rho_F(\ell)/\ell^2}{1-1/\ell}\ \frac{\sqrt{x}}{\log x}.
+\end{equation}
+The product is taken in increasing prime order. One quarter of the pairs modulo 32 meet the required residue for each form, giving the factor $(1/4)/(1-1/2)=1/2$. The proof of Theorem~\ref{thm:quartic-prime-forms} makes the positive representation unique. Indeed $X,Z$ are fixed by $p$ up to the conjugations and sign already removed, and their coprime square factors determine $u,v$. For rule three, divisibility by seven specifies the branch. Thus \eqref{prediction} counts primes as well as representations.
+
+For clarity, the local factors can be calculated without binomial coefficients. Away from 2 and 7 the four forms have four projective roots modulo $\ell$ for $\ell\equiv1,7\bmod16$, and none otherwise. Indeed their dehomogenizations have the same cyclic quartic splitting field $K$ in the proof above. One root of each is, respectively, $r\beta$, $2\beta$, $(2+4r)\beta/7$, and $(2+4r)\beta$. Their conjugates are distinct away from 2 and 7, as can also be checked by their discriminants. Complete splitting is equivalent to Frobenius acting trivially on $K$. At 7 the first two forms have four projective roots and each of the last two has three, by direct reduction. With $j$ projective roots, $\rho_F(\ell)=1+(\ell-1)j$. For $F(u,v)=au^4+bu^2v^2+cv^4$, the area is $\frac12\int_0^\infty(a+bt^2+ct^4)^{-1/2}\,dt$.
+
+At $x=250\,000$, truncating the product at $100\,000$ gives leading-term estimates $8.8,6.2,6.1$ for the three rules, summing both branches of the third. The observed counts are $9,7,6$. This comparison concerns 22 of the 33 primes. Eleven more satisfy the fourth criterion. At this small cutoff the leading term is sensitive to replacing $1/\log x$ by a varying logarithmic weight. We do not infer an asymptotic from these counts.
+
+Infinitude even for the first rule would follow from the usual one-variable prime-values conjecture for $F(8t+1,1)$ with $F=u^4+8u^2v^2+8v^4$. This polynomial is irreducible because $r\beta$ generates $K$, and the invertible rational linear change preserves irreducibility. It has no fixed prime divisor since its values at $t=0,1$ are coprime. Here every value is $17\bmod32$. This is a sufficient conjecture; equivalence with that one-variable specialization would be a stronger statement.
+
+\section{Extension to all positive degrees}\label{extension}
+Let $K=\F_q$ with $q\equiv1\bmod4$. A seed of $k$ rows consists of odd functions $s_i:K\to\{0,\pm1\}$, signs off zero, such that
+\begin{equation}\label{flat}
+ \sum_i|\widehat s_i(y)|^2=kq \qquad(y\ne0).
+\end{equation}
+Here $\widehat s(y)=\sum_x s(x)\psi(yx)$ for a fixed nontrivial additive character $\psi$. For four odd rows, \eqref{diff} is equivalent to \eqref{flat} by Fourier inversion: resetting each origin to $+1$ adds one to every squared magnitude because the transforms of odd real functions are purely imaginary. This step requires all four rows to be odd.
+
+\begin{theorem}\label{allpowers}
+A seed of $k$ rows on $K$ gives a seed of $k$ rows on $\F_{q^n}$ for every $n\ge1$. Thus every prime admitted by Theorem~\ref{ratio} gives skew Hadamard matrices of order $4(p^n+1)$ at all positive exponents. The order-2120 seed gives orders $4(23^{2n}+1)$ for every $n\ge1$.
+\end{theorem}
+\begin{proof}
+For odd $n>1$ we use the cyclic construction of Turyn~\cite{Turyn}, in its vector form~\cite{Kline}. Take matchings of a directed $n$-cycle, marking the least unpaired vertex in each matching. On an edge $(j,j+1)$ place the factor $\delta_0(x_j)\one(x_{j+1})$, where $\one$ is constant one. On the marked vertex place $s_i$ and on every other unpaired vertex the quadratic character $\eta$, with $\eta(0)=0$. Sum the resulting products over matchings. Each nonzero tuple is in exactly one product support: in each run of zeros, pair successive zeros from the first, pairing a final unpaired zero with the next nonzero entry. The zero tuple is in none. On a support, the number of $\eta$ factors is even and the marked factor is odd. This gives the required signs.
+
+Fourier transformation reverses the support rule: the edge factors become $\one(y_j)q\delta_0(y_{j+1})$, while unpaired factors vanish at zero frequency. The reversed cycle therefore selects one potential matching at each nonzero frequency. With $e$ edges and $s=n-2e$ unpaired vertices, its total squared magnitude is $q^{2e}q^{s-1}(kq)=kq^n$, since a nonprincipal quadratic Gauss sum has squared magnitude $q$. This works even if one of the marked transforms vanishes. An additive isomorphism identifies $K^n$ with $\F_{q^n}$.
+
+It remains to double the degree. Put $E=\F_{q^2}$, let $N,\operatorname{Tr}$ be its relative norm and trace, and choose a nonsquare $\omega\in E$. Take two input seeds $(h_{0,j})_j$ and $(h_{1,j})_j$ on $K$, which may coincide. Define
+\[
+ H_j(0)=0,\qquad H_j(\omega^a t^2)=h_{a,j}(Nt)
+       \quad(a=0,1,\ t\in E^\times).
+\]
+The two square classes partition $E^\times$, and $N(-t)=Nt$. A square root $i\in K$ of $-1$ has $N(i)=-1$, proving oddness. Use $\psi\circ\operatorname{Tr}$ upstairs. For frequency $y\ne0$, the contribution from branch $a$ is
+\[
+ \tfrac12\sum_{t\in E^\times}h_{a,j}(Nt)\psi(\operatorname{Tr}(ct^2)),
+ \qquad c=y\omega^a.
+\]
+If $c$ is nonsquare, put $\lambda=c^{(q-1)/2}$. Then $N\lambda=-1$ and $\lambda^2=c^{q-1}$. The substitution $t\mapsto\lambda t^q$ preserves the trace and reverses the sign, giving zero.
+
+If $c$ is square, substitute $s=\sqrt c\,t$ and write $s=A+B\sqrt d$ for a nonsquare $d\in K$. For $m=Ns$ and $v=\operatorname{Tr}(s^2)$ the identities $v+2m=4A^2$, $v-2m=4dB^2$ give precisely $(1+\eta(v+2m))(1-\eta(v-2m))$ preimages. The constant and the term quadratic in $\eta$ are even in $m$ and cancel against $h_{a,j}(m/N\sqrt c)$. Summing the remaining difference over $v$ gives $G(\psi(-2m)-\psi(2m))$, where $G=\sum_v\eta(v)\psi(v)$. Oddness cancels the factor $1/2$, leaving
+\[
+ \widehat H_j(y)=G\,\widehat h_{a,j}(-2N\sqrt c).
+\]
+Exactly one branch has square $c$ for each $y$, independent of $j$. Its aggregate squared magnitude is $|G|^2 kq=kq^2$. Finally write $n=2^a b$ with $b$ odd, use the odd construction (the original seed if $b=1$), and apply this quadratic step $a$ times.
+\end{proof}
+
+Momihara's corrigendum~\cite{Mom} traces the cyclic construction back to Turyn. For dyadic cyclotomic half-intervals the Fourier identity for a quadratic extension already appears in Momihara and Xiang~\cite[Prop.~3.1]{MX}. Differences of consecutive half-intervals span the antipodal class masks. The calculation above permits arbitrary odd inputs and independent choices on the two square classes. Orders 4040, 5192 and 5960 use three further blocks which need not be skew; Theorem~\ref{allpowers} uses the all-skew seeds.
+
+\section{When four skew blocks are necessary}
+We record the scope of the parity obstruction from~\cite{Kline}.
+\begin{proposition}
+On a finite abelian group $V$ of order $v>1$, $v\equiv1\bmod4$, a seed with $k\equiv2\bmod4$ requires $4\mid\operatorname{ord}_p(2)$ for every prime $p\mid v$. In particular four is minimal among all-skew seeds on every $\F_{23^{2n}}$.
+\end{proposition}
+\begin{proof}
+Let $D_i$ be the negative supports, $m=(v-1)/2$, and identify a set with its sum in the integral group ring. Write $J$ for the sum of all group elements and $e$ for the identity. Fourier inversion gives common nonzero difference multiplicity $\lambda=k(v-3)/4$, forcing $k$ even. Write $t=km-\lambda=k(v+1)/4$. Since $D_i^-=J-e-D_i$, substituting in $\sum D_iD_i^-=te+\lambda J$ gives $\sum(D_i^2+D_i)=t(J-e)$. Modulo two, squaring doubles each group element. If $a(x)$ counts membership modulo two, then $a(2x)+a(x)=t\bmod2$ for $x\ne0$, and $a(-x)=a(x)$ since $k$ is even. For $k\equiv2\bmod4$, $t$ is odd, so doubling on pairs $\{x,-x\}$ has even orbit lengths. At prime order $p$ this length is the least $j>0$ with $2^j=\pm1\bmod p$. It is even exactly when $4\mid\operatorname{ord}_p(2)$. Each $p\mid v$ occurs as an element order. For $p=23$, $4\nmid22$, and the four-row family attains the lower bound.
+\end{proof}
+This minimum concerns all-skew seeds. Lemma~\ref{border} needs one skew block. Multiplication of the completed matrices also gives other orders by classical product theorems~\cite{CP}.
+
+\section*{Certificates and scope}
+Among 1373 primes $p\equiv17\bmod32$ through 250000, Theorem~\ref{ratio} selects 33. The counts are $9,7,6,11$ in the polynomial order of the theorem. The first eight primes are 17, 113, 881, 1553, 2129, 2801, 3217 and 4721. The arithmetic scan was checked independently by counting differences in the sixteen multiplicative shift classes. For the first three rules, direct enumeration of the positive quartic forms in Theorem~\ref{thm:quartic-prime-forms} gives precisely the same 22 primes. At $p=241$, the general seven-equation test examines the 128 antipodal masks up to overall sign per row, matching complementary pairs of seven-component signatures. All these scopes are finite. No additional historical order claim is inferred from the number of accepted primes.
+
+The release repository reproduces every finite statement with \texttt{make verify}. The program \path{code/four-orders.c} counts the differences for Table~\ref{masks} directly, and \path{code/matrices.cpp} builds the four matrices and checks every row pair. The programs \path{code/ratio-scan.cpp} and \path{code/ratio-templates.cpp} give the scan and its independent check, and \path{code/template-identities.gp} and \path{code/quartic-counts.gp} the polynomial identities, the quartic-form lists and the estimates. The order-2120 data have a versioned archive~\cite{Kline}.
+
+\subsection*{Role of AI}
+AI assisted the derivations, the computer verification, the literature
+search and the exposition under the author's direction. Process-separated AI
+reviews checked the proofs and certificates; they are not independent expert
+peer review, and no independent human expert has examined the proofs. The
+release repository records the sources, the reviews and their dispositions.
+
+\begin{thebibliography}{99}\small
+\bibitem{CP} M. Cati and D. V. Pasechnik, \href{https://arxiv.org/abs/2411.18897v2}{A database of constructions of Hadamard matrices}, arXiv:2411.18897v2 (2025), Table~5.
+\bibitem{DS} D. \v{Z}. \DJ{}okovi\'c and J. Seberry, \href{https://gestioneventos.us.es/hadamard2025/participants}{Census of symmetric and skew Hadamard matrices of order $4v$ for odd $v<2500$}, Hadamard 2025, Sevilla, May 2025.
+\bibitem{EH} R. J. Evans and J. R. Hill, \href{https://mathweb.ucsd.edu/~revans/Cyclotomic16.pdf}{The cyclotomic numbers of order sixteen}, Math. Comp. 33 (1979), 827--835.
+\bibitem{GSI} Generalised Superintelligence, \href{https://generalised.si/research/skew-symmetric-hadamard}{Skew and symmetric Hadamard matrices}, report GSI-R-0002 and accompanying index, November 2026.
+\bibitem{HW} R. H. Hudson and K. S. Williams, \href{https://doi.org/10.1090/S0002-9947-1984-0722761-X}{Binomial coefficients and Jacobi sums}, Trans. Amer. Math. Soc. 281 (1984), 431--505.
+\bibitem{Kline} J. Kline, \href{https://doi.org/10.5281/zenodo.24356140}{A skew Hadamard matrix of order 2120}, v0.1.0, Zenodo (2026).
+\bibitem{Leh74} E. Lehmer, \href{https://doi.org/10.1017/S0004972700043550}{A family of supplementary difference sets}, Bull. Austral. Math. Soc. 11 (1974), 1--4.
+\bibitem{Leh76} E. Lehmer, \href{https://doi.org/10.1017/S1446788700019273}{Existence criteria for supplementary difference sets}, J. Austral. Math. Soc. Ser. A 21 (1976), 438--446.
+\bibitem{Mom} K. Momihara, \href{https://www.combinatorics.org/ojs/index.php/eljc/article/view/v27i3p36}{A recursive construction for skew Hadamard difference sets}, Electron. J. Combin. 27(3) (2020), P3.36, with corrigendum.
+\bibitem{MX} K. Momihara and Q. Xiang, \href{https://arxiv.org/abs/1801.08776}{Skew Hadamard difference families and skew Hadamard matrices}, arXiv:1801.08776.
+\bibitem{Turyn} R. J. Turyn, \href{https://doi.org/10.4153/CJM-1971-056-0}{On $C$-matrices of arbitrary powers}, Canad. J. Math. 23 (1971), 531--535.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,70 @@
+cff-version: 1.2.0
+message: "Please cite Version 0.1.0 of this research repository."
+title: "Skew Hadamard matrices of orders 4040, 5192, 5960 and 6216"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Kline
+    given-names: Jeffery
+repository-code: "https://github.com/jeff-kline/skew-hadamard-prime-quartics"
+url: "https://github.com/jeff-kline/skew-hadamard-prime-quartics"
+license: GPL-3.0-only
+abstract: >-
+  A paper and release repository giving skew Hadamard matrices of orders
+  4040, 5192, 5960 and 6216 (2^3 times 505, 649, 745 and 777). For each odd
+  part, the 2025 table of Cati and Pasechnik records a larger least known
+  order; at 505 the recorded power of two drops from 2^11 to 2^3. Each matrix
+  comes from four unions of sixteenth-power classes in a prime field
+  p = 17 mod 32, placed in the bordered array of Momihara and Xiang. For four
+  fixed patterns, a prime works if and only if one ratio of binomial
+  coefficients satisfies one of four polynomial congruences mod p; for three
+  of them, the primes that work are exactly those represented by explicit
+  binary quartic forms such as u^4+8u^2v^2+8v^4. All-skew seeds extend to
+  skew Hadamard matrices of order 4(p^n+1) for every n. Sequel to "A skew
+  Hadamard matrix of order 2120" (doi:10.5281/zenodo.24356140). Novelty is
+  bounded to the sources searched.
+keywords:
+  - Hadamard matrices
+  - skew Hadamard matrices
+  - cyclotomy
+  - Jacobi sums
+  - binomial coefficients
+  - binary quartic forms
+references:
+  - type: software
+    title: "A skew Hadamard matrix of order 2120"
+    authors:
+      - family-names: Kline
+        given-names: Jeffery
+    version: 0.1.0
+    year: 2026
+    doi: 10.5281/zenodo.24356140
+  - type: article
+    title: "A database of constructions of Hadamard matrices"
+    authors:
+      - family-names: Cati
+        given-names: Matteo
+      - family-names: Pasechnik
+        given-names: Dmitrii V.
+    year: 2024
+    url: "https://arxiv.org/abs/2411.18897"
+  - type: article
+    title: "Skew Hadamard difference families and skew Hadamard matrices"
+    authors:
+      - family-names: Momihara
+        given-names: Koji
+      - family-names: Xiang
+        given-names: Qing
+    year: 2018
+    url: "https://arxiv.org/abs/1801.08776"
+  - type: article
+    title: "Binomial coefficients and Jacobi sums"
+    authors:
+      - family-names: Hudson
+        given-names: Richard H.
+      - family-names: Williams
+        given-names: Kenneth S.
+    journal: "Transactions of the American Mathematical Society"
+    volume: 281
+    year: 1984
+    doi: 10.1090/S0002-9947-1984-0722761-X

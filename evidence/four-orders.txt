@@ -1,0 +1,5 @@
+p=1009 b=11 masks=255,13973,48322,47288 skew-blocks=1 differences-at-nonzero=[1006,1006] p-3=1006 order=4040 PASS
+p=1297 b=10 masks=765,31425,21866,38610 skew-blocks=1 differences-at-nonzero=[1294,1294] p-3=1294 order=5192 PASS
+p=1489 b=14 masks=765,13916,7507,25542 skew-blocks=1 differences-at-nonzero=[1486,1486] p-3=1486 order=5960 PASS
+p=1553 b=3 masks=11475,13005,19125,21675 skew-blocks=4 differences-at-nonzero=[1550,1550] p-3=1550 order=6216 PASS
+control (1553, last mask altered): p=1553 b=3 masks=11475,13005,19125,21672 skew-blocks=3 differences-at-nonzero=[1745,1782] p-3=1550 order=6216 FAIL

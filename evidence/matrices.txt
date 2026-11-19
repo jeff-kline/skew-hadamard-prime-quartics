@@ -1,0 +1,4 @@
+4040 verified: 8158780 pairs, distance 2020
+5192 verified: 13475836 pairs, distance 2596
+5960 verified: 17757820 pairs, distance 2980
+6216 verified: 19316220 pairs, distance 3108

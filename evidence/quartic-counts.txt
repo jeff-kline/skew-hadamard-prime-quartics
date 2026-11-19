@@ -1,0 +1,5 @@
+form 1: [17, 1553, 2801, 6577, 52433, 87281, 191441, 208721, 229841]  leading estimate = 8.786535437953668126
+form 2: [3217, 12049, 15217, 77617, 88177, 223217, 230929]  leading estimate = 6.213018791312949930
+form 3: [881, 4721, 9521, 41969, 51217]  leading estimate = 3.074613397144047186
+form 4: [33713]  leading estimate = 3.074613397144047186
+All three rule lists agree with the modular scan.
