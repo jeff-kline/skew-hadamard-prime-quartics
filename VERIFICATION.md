@@ -44,7 +44,7 @@ fails on any warning, overfull box or undefined reference. With the pdfTeX
 version listed above, the release PDF `paper/main.pdf` has SHA-256
 
 ```text
-b767ad23f997b28a88d0d868b07ba9ff2b8f3d09dab8bc6affba6169bafa0beb
+806fe52b6b478c0a3ff2e2b7b7b43ae9dedaae9e152d7e4793a7e3961bbb2544
 ```
 
 Other TeX distributions embed different font and metadata bytes, so a

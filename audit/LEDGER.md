@@ -130,3 +130,15 @@ citations (Sonnet), and reproducibility (Sonnet; it ran only `make verify` and
 - **Optional findings adopted:** timing comments say thirty seconds; stale
   header comments in `ratio-scan.cpp` and `ratio-templates.cpp` corrected;
   VERIFICATION.md names PARI/GP 2.17.4.
+
+## 2026-11-18 — tag, archive and admission
+
+- Tag `v0.1.0` (object `fd67366`) → `35ed17b`; the tagged-state audit passed
+  8 of 8. The GitHub Release was published at 2026-11-19 02:49 UTC.
+- Zenodo record 24357696 (version DOI 10.5281/zenodo.24357696, concept DOI
+  10.5281/zenodo.24357695). The Zenodo file is byte-identical to the GitHub
+  zipball pinned before the Release (SHA-256 `e909ab2f…`); the archived-state
+  audit passed 11 of 11.
+- Living metadata: README status paragraph and DOI badge, `CITATION.cff` DOI,
+  identifiers and `date-released`, the paper's DOI line, ADMISSION ADMITTED and
+  the CORRECTIONS version history.
