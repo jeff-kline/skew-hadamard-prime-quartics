@@ -25,7 +25,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We give skew Hadamard matrices of orders 4040, 5192, 5960 and 6216. For each of their odd parts, the 2025 table of Cati and Pasechnik records a larger least known order; at odd part 505 the recorded power of two drops from $2^{11}$ to $2^3$. Each matrix comes from four unions of sixteenth-power classes in a prime field, placed in the bordered array of Momihara and Xiang. For four fixed patterns of such unions we give an exact test: a prime $p\equiv17\bmod32$ works if and only if one ratio of binomial coefficients satisfies one of four polynomial congruences modulo $p$. For three of the four patterns, the primes that work are exactly the primes $p\equiv17\bmod32$ represented by explicit binary quartic forms, such as $u^4+8u^2v^2+8v^4$. There are $O(\sqrt x)$ such primes up to $x$, and infinitely many would follow from the standard conjecture on prime values of polynomials. When all four unions are skew, as at $p=1553$, the construction gives skew Hadamard matrices of order $4(p^n+1)$ for every $n\ge1$. This paper is a sequel to a release that gave order 2120.
+We give skew Hadamard matrices of orders 4040, 5192, 5960 and 6216. For each of their odd parts, the 2025 table of Cati and Pasechnik records a larger least known order; at odd part 505 the recorded power of two drops from $2^{11}$ to $2^3$. Each matrix comes from four unions of sixteenth-power classes in a prime field, placed in the bordered array of Momihara and Xiang. For each of four fixed patterns of such unions we give an exact test: the pattern works at a prime $p\equiv17\bmod32$, for a suitable primitive root, if and only if one ratio of binomial coefficients satisfies a fixed polynomial congruence modulo $p$. For three of the four patterns, the primes that work are exactly the primes $p\equiv17\bmod32$ represented by explicit binary quartic forms, such as $u^4+8u^2v^2+8v^4$. There are $O(\sqrt x)$ such primes up to $x$; for the first form, infinitely many would follow from the standard conjecture on prime values of polynomials. When all four unions are skew, as at $p=1553$, the construction gives skew Hadamard matrices of order $4(p^n+1)$ for every $n\ge1$. This paper is a sequel to a release that gave order 2120.
 \end{abstract}
 
 \section{The orders}
@@ -46,7 +46,7 @@ Skew order & Odd part $m$ & Recorded $t$ & Bound here & Base field\\
 \caption{Upper bounds for skew orders. Ordinary Hadamard matrices at all five orders already follow from Paley II and doubling.}\label{orders}
 \end{table}
 
-The largest improvement is at odd part 505, where the recorded exponent drops from eleven to at most three. At orders 4040, 5192 and 5960, only the first of four blocks is skew. At 6216 all four blocks are skew, which permits us to extend the construction to every positive field degree. The order comparison is to the authors' 2025 table. The later census of \DJ{}okovi\'c and Seberry~\cite{DS} treats the possible half-orders $4m$, and the November 2026 update~\cite{GSI} records neither these five orders nor their halves in its skew index. General constructions conditional on further difference families or orthogonal designs leave historical priority open. The earlier archive~\cite{Kline} contains the full order-2120 matrix, the square-field seed, the odd-degree construction and the all-skew minimum used below.
+The largest improvement is at odd part 505, where the recorded exponent drops from eleven to at most three. At orders 4040, 5192 and 5960, only the first of four blocks is skew. At 6216 all four blocks are skew, which permits us to extend the construction to every positive field degree. The order comparison is to Cati and Pasechnik's table. The later census of \DJ{}okovi\'c and Seberry~\cite{DS} treats the possible half-orders $4m$, and the November 2026 update~\cite{GSI} records neither these five orders nor their halves in its skew index. General constructions conditional on further difference families or orthogonal designs leave historical priority open. The earlier archive~\cite{Kline} contains the full order-2120 matrix, the square-field seed, the odd-degree construction and the all-skew minimum used below.
 
 \section{Four finite certificates}
 Let $G$ be an abelian group of odd order $v$. Put $m=(v-1)/2$. Four sets $B_i$ of size $m$ meet the difference condition if, for every $t\ne0$,
@@ -88,7 +88,7 @@ There exist skew Hadamard matrices at the four prime-field orders of Table~\ref{
 \begin{proof}
 Negation shifts the class index by eight since $(p-1)/16$ is odd. The opposite bits of the first mask always differ. For reproducibility, the following integer calculation obtains the last column of Table~\ref{masks} at every nonzero shift. Here $\mathrm{bit}(M,j)=\lfloor M/2^j\rfloor\bmod2$.
 \begin{quote}\small
-Fill $c[b^j\bmod p]=j\bmod16$ for $0\le j<p-1$, checking that no residue repeats. Initialize $d[0],\ldots,d[p-1]$ to zero. For each of the four masks form $B=\{1\le x<p:\mathrm{bit}(M,c[x])=0\}$. For each $x,y\in B$ increment $d[(x-y)\bmod p]$ by one. The minimum and maximum of $d[1],\ldots,d[p-1]$ both equal the tabulated value, and $d[0]=2(p-1)$.
+Fill $c[b^j\bmod p]=j\bmod16$ for $0\le j<p-1$, checking that no residue repeats. Initialize $d[0],\ldots,d[p-1]$ to zero. For each of the four masks form $B=\{1\le x<p:\mathrm{bit}(M,c[x])=0\}$. For each $x,y\in B$ increment $d[(x-y)\bmod p]$ by one. Each mask has eight set bits, so each $B$ has $(p-1)/2$ elements. The minimum and maximum of $d[1],\ldots,d[p-1]$ both equal the tabulated value, and $d[0]=2(p-1)$.
 \end{quote}
 Lemma~\ref{border} applies. A separate check on the completed sign matrices verified skewness and Hamming distance $N/2$ for all $58\,708\,656$ unordered pairs of distinct rows across the four orders.
 \end{proof}
@@ -107,7 +107,7 @@ Write $p=16h+1$ with $h$ odd and set
 \]
 We now use \emph{eight-bit} masks. A set bit at position $j$ means a negative sign at $b^j$, $0\le j<8$. Specify the opposite sign at $j+8$, extend with period sixteen, and give the origin value zero. These signed rows are odd. A rotation by $e$ replaces $s(x)$ by $s(b^e x)$.
 \begin{theorem}\label{ratio}
-For each row of the following table there exists a choice of primitive base for which the four negative supports satisfy \eqref{diff} if and only if the indicated polynomial vanishes at $Y$ modulo $p$.
+Let $p=16h+1$ be prime with $h$ odd. For each row of the following table there exists a choice of primitive base for which the four negative supports satisfy \eqref{diff} if and only if the indicated polynomial vanishes at $Y$ modulo $p$.
 \[
 \begin{array}{cll}
 \toprule j& P_j(Y)&\text{four signed rows}\\
@@ -120,7 +120,7 @@ For each row of the following table there exists a choice of primitive base for 
 \end{array}
 \]
 \end{theorem}
-The equivalence quantifies over the indicated templates. Four freely chosen masks satisfy the more general system \eqref{seven} below. For example, $p=1553$ gives $Y=190$ and $190^2-2(190)-1=23\cdot1553$. At $p=241$ even the unrestricted all-skew index-sixteen test has no solution.
+The equivalence quantifies over the indicated templates. For four freely chosen masks, \eqref{diff} is equivalent to the system \eqref{seven} below. For example, $p=1553$ gives $Y=190$ and $190^2-2(190)-1=23\cdot1553$. Among the four primes of Table~\ref{masks}, only 1553 is selected by Theorem~\ref{ratio}; the other three use sets of which only the first is skew.
 
 \begin{proof}
 Let $z=b^h$. For positive odd $u<16$ define $L_{i,u}(X)=\sum_{j=0}^7 s_i(b^j)X^{uj}$. Fourier inversion on the sixteen exponent classes gives, including at zero,
@@ -354,23 +354,23 @@ If $c$ is square, substitute $s=\sqrt c\,t$ and write $s=A+B\sqrt d$ for a nonsq
 \[
  \widehat H_j(y)=G\,\widehat h_{a,j}(-2N\sqrt c).
 \]
-Exactly one branch has square $c$ for each $y$, independent of $j$. Its aggregate squared magnitude is $|G|^2 kq=kq^2$. Finally write $n=2^a b$ with $b$ odd, use the odd construction (the original seed if $b=1$), and apply this quadratic step $a$ times.
+Exactly one branch has square $c$ for each $y$, independent of $j$. Its aggregate squared magnitude is $|G|^2 kq=kq^2$. Finally write $n=2^a b$ with $b$ odd, use the odd construction (the original seed if $b=1$), and apply this quadratic step $a$ times. For a prime admitted by Theorem~\ref{ratio}, every row of the resulting seed on $\F_{p^n}$ is odd, so by the equivalence of \eqref{diff} and \eqref{flat} its four negative supports are skew and satisfy \eqref{diff}; Lemma~\ref{border} gives order $4(p^n+1)$. The same holds for the order-2120 seed with $q=23^2$.
 \end{proof}
 
-Momihara's corrigendum~\cite{Mom} traces the cyclic construction back to Turyn. For dyadic cyclotomic half-intervals the Fourier identity for a quadratic extension already appears in Momihara and Xiang~\cite[Prop.~3.1]{MX}. Differences of consecutive half-intervals span the antipodal class masks. The calculation above permits arbitrary odd inputs and independent choices on the two square classes. Orders 4040, 5192 and 5960 use three further blocks which need not be skew; Theorem~\ref{allpowers} uses the all-skew seeds.
+Momihara's corrigendum~\cite{Mom} traces the cyclic construction back to Turyn. For dyadic cyclotomic half-intervals the Fourier identity for a quadratic extension already appears in Momihara and Xiang~\cite[Prop.~3.1]{MX}. The calculation above permits arbitrary odd inputs and independent choices on the two square classes. Orders 4040, 5192 and 5960 use three further blocks which need not be skew; Theorem~\ref{allpowers} uses the all-skew seeds.
 
 \section{When four skew blocks are necessary}
 We record the scope of the parity obstruction from~\cite{Kline}.
 \begin{proposition}
-On a finite abelian group $V$ of order $v>1$, $v\equiv1\bmod4$, a seed with $k\equiv2\bmod4$ requires $4\mid\operatorname{ord}_p(2)$ for every prime $p\mid v$. In particular four is minimal among all-skew seeds on every $\F_{23^{2n}}$.
+Let $V$ be a finite abelian group of order $v>1$, $v\equiv1\bmod4$, and call $k$ odd functions $V\to\{0,\pm1\}$, signs off zero, a seed on $V$ if their squared Fourier magnitudes sum to $kv$ at every nonprincipal character. A seed with $k\equiv2\bmod4$ requires $4\mid\operatorname{ord}_p(2)$ for every prime $p\mid v$. In particular four is minimal among all-skew seeds on every $\F_{23^{2n}}$.
 \end{proposition}
 \begin{proof}
-Let $D_i$ be the negative supports, $m=(v-1)/2$, and identify a set with its sum in the integral group ring. Write $J$ for the sum of all group elements and $e$ for the identity. Fourier inversion gives common nonzero difference multiplicity $\lambda=k(v-3)/4$, forcing $k$ even. Write $t=km-\lambda=k(v+1)/4$. Since $D_i^-=J-e-D_i$, substituting in $\sum D_iD_i^-=te+\lambda J$ gives $\sum(D_i^2+D_i)=t(J-e)$. Modulo two, squaring doubles each group element. If $a(x)$ counts membership modulo two, then $a(2x)+a(x)=t\bmod2$ for $x\ne0$, and $a(-x)=a(x)$ since $k$ is even. For $k\equiv2\bmod4$, $t$ is odd, so doubling on pairs $\{x,-x\}$ has even orbit lengths. At prime order $p$ this length is the least $j>0$ with $2^j=\pm1\bmod p$. It is even exactly when $4\mid\operatorname{ord}_p(2)$. Each $p\mid v$ occurs as an element order. For $p=23$, $4\nmid22$, and the four-row family attains the lower bound.
+Let $D_i$ be the negative supports, $m=(v-1)/2$, and identify a set with its sum in the integral group ring. Write $J$ for the sum of all group elements and $e$ for the identity. Fourier inversion gives common nonzero difference multiplicity $\lambda=k(v-3)/4$, forcing $k$ even. Write $t=km-\lambda=k(v+1)/4$. Since $D_i^-=J-e-D_i$, substituting in $\sum D_iD_i^-=te+\lambda J$ gives $\sum(D_i^2+D_i)=t(J-e)$. Modulo two, squaring doubles each group element. If $a(x)$ counts membership modulo two, then $a(2x)+a(x)=t\bmod2$ for $x\ne0$, and $a(-x)=a(x)$ since $k$ is even. For $k\equiv2\bmod4$, $t$ is odd, so doubling on pairs $\{x,-x\}$ has even orbit lengths. At prime order $p$ this length is the least $j>0$ with $2^j=\pm1\bmod p$. It is even exactly when $4\mid\operatorname{ord}_p(2)$. Each $p\mid v$ occurs as an element order. For $p=23$, $\operatorname{ord}_{23}(2)=11$ since $2^{11}=2048=23\cdot89+1$, so $4\nmid\operatorname{ord}_{23}(2)$, and the four-row family attains the lower bound.
 \end{proof}
 This minimum concerns all-skew seeds. Lemma~\ref{border} needs one skew block. Multiplication of the completed matrices also gives other orders by classical product theorems~\cite{CP}.
 
 \section*{Certificates and scope}
-Among 1373 primes $p\equiv17\bmod32$ through 250000, Theorem~\ref{ratio} selects 33. The counts are $9,7,6,11$ in the polynomial order of the theorem. The first eight primes are 17, 113, 881, 1553, 2129, 2801, 3217 and 4721. The arithmetic scan was checked independently by counting differences in the sixteen multiplicative shift classes. For the first three rules, direct enumeration of the positive quartic forms in Theorem~\ref{thm:quartic-prime-forms} gives precisely the same 22 primes. At $p=241$, the general seven-equation test examines the 128 antipodal masks up to overall sign per row, matching complementary pairs of seven-component signatures. All these scopes are finite. No additional historical order claim is inferred from the number of accepted primes.
+Among 1373 primes $p\equiv17\bmod32$ through 250000, Theorem~\ref{ratio} selects 33. The counts are $9,7,6,11$ in the polynomial order of the theorem. The first eight primes are 17, 113, 881, 1553, 2129, 2801, 3217 and 4721. The arithmetic scan was checked independently by counting differences in the sixteen multiplicative shift classes. For the first three rules, direct enumeration of the positive quartic forms in Theorem~\ref{thm:quartic-prime-forms} gives precisely the same 22 primes. All these scopes are finite. No additional historical order claim is inferred from the number of accepted primes.
 
 The release repository reproduces every finite statement with \texttt{make verify}. The program \path{code/four-orders.c} counts the differences for Table~\ref{masks} directly, and \path{code/matrices.cpp} builds the four matrices and checks every row pair. The programs \path{code/ratio-scan.cpp} and \path{code/ratio-templates.cpp} give the scan and its independent check, and \path{code/template-identities.gp} and \path{code/quartic-counts.gp} the polynomial identities, the quartic-form lists and the estimates. The order-2120 data have a versioned archive~\cite{Kline}.
 
@@ -385,12 +385,12 @@ release repository records the sources, the reviews and their dispositions.
 \bibitem{CP} M. Cati and D. V. Pasechnik, \href{https://arxiv.org/abs/2411.18897v2}{A database of constructions of Hadamard matrices}, arXiv:2411.18897v2 (2025), Table~5.
 \bibitem{DS} D. \v{Z}. \DJ{}okovi\'c and J. Seberry, \href{https://gestioneventos.us.es/hadamard2025/participants}{Census of symmetric and skew Hadamard matrices of order $4v$ for odd $v<2500$}, Hadamard 2025, Sevilla, May 2025.
 \bibitem{EH} R. J. Evans and J. R. Hill, \href{https://mathweb.ucsd.edu/~revans/Cyclotomic16.pdf}{The cyclotomic numbers of order sixteen}, Math. Comp. 33 (1979), 827--835.
-\bibitem{GSI} Generalised Superintelligence, \href{https://generalised.si/research/skew-symmetric-hadamard}{Skew and symmetric Hadamard matrices}, report GSI-R-0002 and accompanying index, November 2026.
+\bibitem{GSI} Generalised Superintelligence, \href{https://generalised.si/research/skew-symmetric-hadamard}{New families and orders of skew-Hadamard and symmetric Hadamard matrices}, report GSI-R-0002 and accompanying index, 16 November 2026.
 \bibitem{HW} R. H. Hudson and K. S. Williams, \href{https://doi.org/10.1090/S0002-9947-1984-0722761-X}{Binomial coefficients and Jacobi sums}, Trans. Amer. Math. Soc. 281 (1984), 431--505.
 \bibitem{Kline} J. Kline, \href{https://doi.org/10.5281/zenodo.24356140}{A skew Hadamard matrix of order 2120}, v0.1.0, Zenodo (2026).
 \bibitem{Leh74} E. Lehmer, \href{https://doi.org/10.1017/S0004972700043550}{A family of supplementary difference sets}, Bull. Austral. Math. Soc. 11 (1974), 1--4.
 \bibitem{Leh76} E. Lehmer, \href{https://doi.org/10.1017/S1446788700019273}{Existence criteria for supplementary difference sets}, J. Austral. Math. Soc. Ser. A 21 (1976), 438--446.
-\bibitem{Mom} K. Momihara, \href{https://www.combinatorics.org/ojs/index.php/eljc/article/view/v27i3p36}{A recursive construction for skew Hadamard difference sets}, Electron. J. Combin. 27(3) (2020), P3.36, with corrigendum.
+\bibitem{Mom} K. Momihara, \href{https://doi.org/10.37236/9058}{A recursive construction for skew Hadamard difference sets}, Electron. J. Combin. 27(3) (2020), P3.36, with corrigendum.
 \bibitem{MX} K. Momihara and Q. Xiang, \href{https://arxiv.org/abs/1801.08776}{Skew Hadamard difference families and skew Hadamard matrices}, arXiv:1801.08776.
 \bibitem{Turyn} R. J. Turyn, \href{https://doi.org/10.4153/CJM-1971-056-0}{On $C$-matrices of arbitrary powers}, Canad. J. Math. 23 (1971), 531--535.
 \end{thebibliography}

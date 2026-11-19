@@ -1,10 +1,10 @@
 # Admission record
 
-**Current state:** DRAFT
+**Current state:** CANDIDATE
 
 Current verdict: NOT YET ADMITTED
 
-**Version:** 0.1.0 (draft)
+**Version:** 0.1.0 (release candidate)
 
 **Standard:** [A Public Standard for This Work](https://jeff-kline.github.io/posts/research-program/index.html)
 
@@ -40,6 +40,6 @@ $n\ge2$.
 
 | Gate | Status | Evidence or residual |
 |---|---|---|
-| P1 prior work and credit | IN PROGRESS | `audit/PRIOR-ART.md`; searches of 2026-11-18/19 |
-| A1 claim and artifact consistency | IN PROGRESS | release audits pending |
-| R1 release and stewardship | IN PROGRESS | `make verify` and `make paper` pass locally; no tag, archive or DOI |
+| P1 prior work and credit | PARTIAL | `audit/PRIOR-ART.md`; searches of 2026-11-18/19 (GitHub code and repositories with a positive control, arXiv, the November 2026 survey and GSI report, the census, Cati–Pasechnik Table 5); Lehmer, Evans–Hill and Hudson–Williams compared. Residuals: two dicyclic relative-difference-set papers seen only in publisher preview (full text not openly accessible at the time of writing); papers citing Momihara–Xiang not screened (rate limited) |
+| A1 claim and artifact consistency | PASS | The author delegated the prose checkpoint (2026-11-18). Four release audits (claims, end-to-end proof, citations, reproducibility); every finding and its disposition is in `audit/LEDGER.md` |
+| R1 release and stewardship | IN PROGRESS | `make verify` (8 MATCH) and a deterministic `make paper` pass, also from a clean `git archive`; correction policy, CITATION.cff and MANIFEST.sha256 present. No tag, archive or DOI yet |

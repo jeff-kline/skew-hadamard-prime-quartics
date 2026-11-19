@@ -1,4 +1,4 @@
-// Read p, R, rule (1..4) from prime-ratio-scan. R is ignored.
+// Read p, R, rule (1..4) from ratio-scan output. R is ignored.
 // Direct integer differences of the four sets, for every nonzero shift orbit.
 #include <array>
 #include <cstdint>

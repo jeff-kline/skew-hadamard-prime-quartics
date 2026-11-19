@@ -26,7 +26,7 @@ localfactor(ell,k) = (1-(1+(ell-1)*k)/ell^2)/(1-1/ell);
     foreach(sorted,p,listput(rulehits[min(index,3)],p));
     my(correction = if(index<3,1,localfactor(7,3)/localfactor(7,4)));
     my(estimate = area(f[1],f[2],f[3])*product*correction*sqrt(limit)/(2*log(limit)));
-    print("form ",index,": ",sorted,"  leading estimate = ",precision(estimate,5))
+    print("form ",index,": ",sorted,"  leading estimate = ",strprintf("%.4f",estimate))
   );
   for(rule = 1, 3,
     my(recorded = List());

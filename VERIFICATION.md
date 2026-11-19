@@ -4,7 +4,7 @@
 
 - macOS 26.6.2, x86_64, one core, run under `nice`.
 - Apple clang 21.0.0, used as `cc -O2` and `c++ -std=c++17 -O3`.
-- PARI/GP, from MacPorts.
+- PARI/GP 2.17.4, from MacPorts, run with `-q -f` so that no user `.gprc` applies.
 - pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2021).
 
 The programs need no network and no precomputed tables. Their SHA-256 hashes
@@ -44,7 +44,7 @@ fails on any warning, overfull box or undefined reference. With the pdfTeX
 version listed above, the release PDF `paper/main.pdf` has SHA-256
 
 ```text
-ec4cf17c3e45477c4712cd0c1758c513fadb5cff9717fb94449e7736cae24571
+b767ad23f997b28a88d0d868b07ba9ff2b8f3d09dab8bc6affba6169bafa0beb
 ```
 
 Other TeX distributions embed different font and metadata bytes, so a

@@ -16,10 +16,10 @@ abstract: >-
   order; at 505 the recorded power of two drops from 2^11 to 2^3. Each matrix
   comes from four unions of sixteenth-power classes in a prime field
   p = 17 mod 32, placed in the bordered array of Momihara and Xiang. For four
-  fixed patterns, a prime works if and only if one ratio of binomial
-  coefficients satisfies one of four polynomial congruences mod p; for three
-  of them, the primes that work are exactly those represented by explicit
-  binary quartic forms such as u^4+8u^2v^2+8v^4. All-skew seeds extend to
+  fixed patterns, a pattern works at a prime (for some primitive root) if and
+  only if one ratio of binomial coefficients satisfies a fixed polynomial
+  congruence mod p; for three of them, the primes that work are exactly those
+  represented by explicit binary quartic forms such as u^4+8u^2v^2+8v^4. All-skew seeds extend to
   skew Hadamard matrices of order 4(p^n+1) for every n. Sequel to "A skew
   Hadamard matrix of order 2120" (doi:10.5281/zenodo.24356140). Novelty is
   bounded to the sources searched.
@@ -46,8 +46,8 @@ references:
         given-names: Matteo
       - family-names: Pasechnik
         given-names: Dmitrii V.
-    year: 2024
-    url: "https://arxiv.org/abs/2411.18897"
+    year: 2025
+    url: "https://arxiv.org/abs/2411.18897v2"
   - type: article
     title: "Skew Hadamard difference families and skew Hadamard matrices"
     authors:

@@ -1,4 +1,4 @@
-// clang++ -O2 -std=c++17 prime-ratio-scan.cpp -o /tmp/ratio-scan
+// Build with: c++ -std=c++17 -O2 ratio-scan.cpp -o ratio-scan
 // Search the four proved polynomial criteria up to the requested inclusive bound.
 #include <array>
 #include <cstdint>

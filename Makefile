@@ -16,7 +16,7 @@ paper:
 	@! grep -E 'Warning:|Overfull|undefined references|undefined citations' paper/main.log
 	@echo "paper built: paper/main.pdf"
 
-# Run every certificate (about twenty seconds on one core) and compare each
+# Run every certificate (about thirty seconds on one core) and compare each
 # output with the pinned copy in evidence/.
 verify:
 	@rm -rf build/certificates

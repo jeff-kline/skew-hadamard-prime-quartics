@@ -27,12 +27,15 @@ sixteen classes of sixteenth powers, go into the bordered array of Momihara
 and Xiang. The array needs only the first set to be skew. The certificates
 are integer difference counts that a short program checks directly.
 
-The paper then asks which primes work. For four fixed patterns of sets, the
-answer is an exact test: compute one ratio of binomial coefficients modulo
-$p$ and check four polynomials. For three of the patterns, the primes that
-pass are exactly the primes $p\equiv17\pmod{32}$ of the form
-$u^4+8u^2v^2+8v^4$, $u^4+16u^2v^2+32v^4$, $49u^4+80u^2v^2+32v^4$ or
-$u^4+80u^2v^2+1568v^4$. Up to $250\,000$ the test selects 33 of the 1373
+The paper then asks which primes work. For each of four fixed patterns of
+sets, the answer is an exact test: compute one ratio of binomial coefficients
+modulo $p$ and check one polynomial; the pattern works, for a suitable
+primitive root, exactly when the polynomial vanishes. For three of the
+patterns, the primes that pass are exactly the primes $p\equiv17\pmod{32}$
+of the form $u^4+8u^2v^2+8v^4$, of the form $u^4+16u^2v^2+32v^4$, and (for the
+third pattern) of either form $49u^4+80u^2v^2+32v^4$ or
+$u^4+80u^2v^2+1568v^4$. Of the four primes above, only 1553 passes; the other
+three use sets of which only the first is skew. Up to $250\,000$ the test selects 33 of the 1373
 candidate primes. When all four sets are skew, as at $p=1553$ and for every
 prime the test selects, the construction extends to skew Hadamard matrices of
 order $4(p^n+1)$ for every $n\ge1$.
@@ -51,20 +54,23 @@ here:
    Cati–Pasechnik table for its odd part: from $2^{11}$, $2^4$, $2^6$ and $2^4$
    to $2^3$.
 2. **An exact binomial test** (Theorem 3). For each of four fixed patterns of
-   four skew sets, a prime $p=16h+1$ with $h$ odd works if and only if
+   four skew sets and a prime $p=16h+1$ with $h$ odd, the pattern works for
+   some primitive root if and only if
    $Y=\binom{8h}{3h}/\binom{8h}{h}$ satisfies $Y^2-2Y-1$, $Y^2+2Y-1$,
-   $Y^2-14Y-1$ or $17Y^4-44Y^3+66Y^2-52Y+17\equiv0\pmod p$. The test covers
-   these four patterns only.
+   $Y^2-14Y-1$ or $17Y^4-44Y^3+66Y^2-52Y+17$ (one polynomial per pattern)
+   vanishes modulo $p$. The test covers these four patterns only.
 3. **Quartic forms** (Theorem 4). The primes that pass the first three tests
    are exactly the primes $p\equiv17\pmod{32}$ represented by the quartic
    forms listed above. There are $O(\sqrt x)$ of them up to $x$. A
    prime-values heuristic predicts 8.8, 6.2 and 6.1 up to $250\,000$; the
-   counts are 9, 7 and 6. Infinitely many would follow from the standard
-   conjecture on prime values of one-variable polynomials.
-4. **All extension degrees** (Theorem 5). A four-set skew seed over a field of
-   order $q\equiv1\pmod4$ extends to every degree $n\ge1$. This gives order
-   $4(p^n+1)$ for every prime the test selects, and extends the previous
-   release's order $4(23^{2n}+1)$ from odd $n$ to every $n$.
+   counts are 9, 7 and 6. For the first form, infinitely many would follow from
+   the standard conjecture on prime values of one-variable polynomials.
+4. **All extension degrees** (Theorem 5). A quadratic-extension step, combined
+   with the earlier odd-degree construction, extends a four-set skew seed over a
+   field of order $q\equiv1\pmod4$ to every degree $n\ge1$. For every prime the
+   test selects this gives skew Hadamard matrices of order $4(p^n+1)$ for all
+   $n$, and it extends the previous release's family $4(23^{2n}+1)$ from odd
+   $n$ to every $n$. No priority is claimed for these orders when $n\ge2$.
 
 Not new:
 
@@ -88,8 +94,8 @@ not a claim of global novelty.
 - **Kline (2026)**, *A skew Hadamard matrix of order 2120*,
   [doi:10.5281/zenodo.24356140](https://doi.org/10.5281/zenodo.24356140):
   order 2120, the odd-degree extension and the four-set minimum for
-  characteristic 3 mod 4.
-- **Cati and Pasechnik (2024)**,
+  all-skew families over primes $p\equiv3\pmod4$.
+- **Cati and Pasechnik (2024; v2 2025)**,
   [*A database of constructions of Hadamard matrices*](https://arxiv.org/abs/2411.18897),
   Table 5: $505(11)$, $649(4)$, $745(6)$ and $777(4)$.
 - **Momihara and Xiang (2018)**,
@@ -112,18 +118,16 @@ not a claim of global novelty.
 | Theorem 2: the four orders | certified computation: direct difference counts, and every row pair of the four completed matrices |
 | Theorem 3 (binomial test) | proved on paper, with polynomial identities and resultants checked in PARI/GP |
 | Theorem 4 (quartic forms) | proved on paper |
-| The 33 selected primes up to $250\,000$ | certified computation, checked a second way by difference counts in the sixteen shift classes |
+| The 33 selected primes up to $250\,000$ | certified computation, checked a second way by difference counts on one shift from each class of sixteenth powers |
 | Theorem 5 (all degrees) | proved on paper |
 | Counting estimates | heuristic; the $O(\sqrt x)$ bound is proved |
 | Priority at the four orders | bounded search; see [audit/PRIOR-ART.md](audit/PRIOR-ART.md) |
 
 Limits:
 
-- The fourth test (the quartic polynomial) has no quartic-form description.
-- Whether infinitely many primes pass any test is open.
-- The test concerns four fixed patterns. At $p=241$ no choice of four skew
-  sixteenth-power unions works at all, and at $p=1873$ the search over
-  sixteenth-power unions with only the first set skew found no witness.
+- We give no quartic-form description of the fourth test.
+- Whether infinitely many primes pass any of the tests is open.
+- The test concerns four fixed patterns, not every choice of sets.
 - The half-orders 2020, 2596, 2980 and 3108 remain open.
 
 ## Reproduce
